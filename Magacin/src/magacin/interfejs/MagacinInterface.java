@@ -9,5 +9,5 @@ public interface MagacinInterface {
 		
 	public void dodajArtikal(Artikal a) ;
 	public void izbaciArtikal(Artikal a);
-	public void pronadjiArtikal(Artikal a);
+	public Artikal pronadjiArtikal(int sifra);
 }

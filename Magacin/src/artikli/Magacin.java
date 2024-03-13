@@ -1,24 +1,45 @@
 package artikli;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import magacin.interfejs.MagacinInterface;
 
 public class Magacin implements MagacinInterface {
-
+	List<Artikal> artikli=new ArrayList<>();
+	
 	@Override
 	public void dodajArtikal(Artikal a) {
-		// TODO Auto-generated method stub
+		for(Artikal artikal:artikli) {
+			if(a.equals(artikal)) {
+				a.setKolicina(a.getKolicina()+1);
+				return;
+			}
+		}
+		artikli.add(a);
 		
 	}
 
 	@Override
 	public void izbaciArtikal(Artikal a) {
-		// TODO Auto-generated method stub
+		for(Artikal artikal:artikli) {
+			if(a.equals(artikal)) {
+				a.setKolicina(a.getKolicina()-1);
+				return;
+			}
+		}
+		artikli.remove(a);
 		
 	}
 
 	@Override
-	public void pronadjiArtikal(Artikal a) {
-		// TODO Auto-generated method stub
+	public Artikal pronadjiArtikal(int sifra) {
+		for(Artikal artikal:artikli) {
+			if(artikal.getSifra()==sifra) {
+				return artikal;
+			}
+		}
+		return null;
 		
 	}
 	
