@@ -1,5 +1,7 @@
 package artikli;
 
+import java.util.Objects;
+
 public class KancelarisjkiMaterijal {
 	private String naziv;
 	private int sifra;
@@ -29,4 +31,27 @@ public class KancelarisjkiMaterijal {
 	public void setKolicina(int kolicina) {
 		this.kolicina = kolicina;
 	}
+	@Override
+	public int hashCode() {
+		return Objects.hash(kolicina, naziv, opis, sifra);
+	}
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		KancelarisjkiMaterijal other = (KancelarisjkiMaterijal) obj;
+		return kolicina == other.kolicina && Objects.equals(naziv, other.naziv) && Objects.equals(opis, other.opis)
+				&& sifra == other.sifra;
+	}
+	@Override
+	public String toString() {
+		return "KancelarisjkiMaterijal [naziv=" + naziv + ", sifra=" + sifra + ", opis=" + opis + ", kolicina="
+				+ kolicina + "]";
+	}
+	
+	
 }
